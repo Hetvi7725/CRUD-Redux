@@ -12,44 +12,16 @@ function Crud(){
 
     let [search , setsearch] = useState('');
 
-    // let [prorecord, setprorecord] = useState([]);
-    // let [pageno, setpageno] = useState([]);
-    // const [currentPage, setCurrentPage] = useState(1);
-    // const [PerPage , setPerPage] = useState(5);
-
     let [sortdata ,setsort] = useState(false);
-
-    // useEffect(()=>{
-    //     const LastRecord = currentPage * PerPage;
-    //     const FirstRecord = LastRecord - PerPage;
-    //     const currentRecords = productData.slice(FirstRecord, LastRecord);
-    //     setproduct(currentRecords)
-    //     const no = Math.ceil(productData.length / PerPage)
-    //     var pages = [];
-    //         for(let i=1 ; i<=no ; i++) 
-    //         {
-    //             pages.push(i);
-    //         }
-    //         setpageno(pages);
-    // })
-
-    // let selectno=(pagen)=>{
-    //     setCurrentPage(pagen);
-    //     const LastRecord = pagen * PerPage;
-    //     const FirstRecord = LastRecord - PerPage;
-    //     const currentRecords = productData.slice(FirstRecord, LastRecord);
-    //     setprorecord(currentRecords);
-    // }
 
     let sortingproduct = (sortdata) => {
         let products = [...productData];
-        var productdatas;
         if (sortdata) {
-            productdatas = products.sort((a, b) => a.price - b.price);
+            products.sort((a, b) => a.price - b.price);
             setsort(true);
         }
         else {
-            productdatas = products.sort((a, b) => b.price - a.price);
+            products.sort((a, b) => b.price - a.price);
             setsort(false);
         }
         console.log(productdatas);
@@ -156,15 +128,7 @@ function Crud(){
                     )
                 }) : ""}
                 </div>    
-                {/* <Pagination>
-                    <div style={{margin:"0 auto", display:"flex" , marginTop:"30px"}}>
-                        {pageno.map((v,i)=>{
-                                    return(
-                                             <Pagination.Item key={v} active={v} onClick={()=>selectno(v)}>{v}</Pagination.Item>
-                                    )
-                        })}
-                    </div>
-                </Pagination>                                             */}
+              
         </div>
     )
 }
